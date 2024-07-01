@@ -4,9 +4,6 @@ import game.*;
 import boards.*;
 
 public class GameEngine {
-    public static void main(String args[]) {
-        
-    }
 
     public Board start(String type) {
         if(type.equals("TicTacToe")) return new TicTacToeBoard();
