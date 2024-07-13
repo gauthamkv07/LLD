@@ -1,6 +1,7 @@
 package game;
+
 public class Move {
-    
+
     private Cell cell;
 
     public Move(Cell cell) {
@@ -9,6 +10,10 @@ public class Move {
 
     public Cell getCell() {
         return cell;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
     }
 }
 
