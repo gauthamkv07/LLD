@@ -1,27 +1,12 @@
 package api;
 
-import game.*;
 import boards.TicTacToeBoard;
+import game.Board;
+import game.GameResult;
 
-public class GameEngine {
+public class RuleEngine {
 
-    public Board start(String type) {
-        if (type.equals("TicTacToe")) {
-            return new TicTacToeBoard();
-        }
-        throw new IllegalArgumentException();
-    }
-
-    public void move(Board board, Player player, Move move) {
-        if (board instanceof TicTacToeBoard) {
-            TicTacToeBoard board1 = (TicTacToeBoard) board;
-            board1.setCell(move.getCell(), player.symbol());
-            return;
-        }
-        throw new IllegalArgumentException();
-    }
-
-    public GameResult isComplete(Board board) {
+    public GameResult getState(Board board) {
         if (board instanceof TicTacToeBoard) {
             String firstCharacter = "-";
             TicTacToeBoard board1 = (TicTacToeBoard) board;
@@ -97,20 +82,4 @@ public class GameEngine {
         }
         return new GameResult(false, "");
     }
-
-    public Move suggestMove(Player computer, Board board) {
-        if (board instanceof TicTacToeBoard) {
-            TicTacToeBoard board1 = (TicTacToeBoard) board;
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    if (board1.getCell(i, j) == null) {
-                        return new Move(new Cell(i, j));
-                    }
-                }
-            }
-            throw new IllegalStateException();
-        }
-        throw new IllegalArgumentException();
-    }
 }
-
