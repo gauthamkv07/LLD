@@ -3,7 +3,7 @@ package api;
 import boards.TicTacToeBoard;
 import game.*;
 
-public class AIPlayer {
+public class AIEngine {
 
     public Move suggestMove(Player computer, Board board) {
         if (board instanceof TicTacToeBoard) {
